@@ -1,13 +1,12 @@
-import { BalanceSheetData } from "@/app/types";
 import BalanceSheetTable from "./BalanceSheetTable";
-import { BALANCE_SHEET_ENDPOINT } from "@/constant";
+import ErrorPage from "../ErrorPage";
+import { fetchBalanceSheetData } from "@/services/getBalanceSheet";
 
 const BalanceSheet = async () => {
-  const res = await fetch(`${process.env.API_ENDPOINT}${BALANCE_SHEET_ENDPOINT}`, {
-    cache: "no-store",
-  });
-  const data: BalanceSheetData = await res.json();
-
+  const data = await fetchBalanceSheetData();
+  if (!data) {
+    return <ErrorPage message="We encountered an error while trying to load the data. Please try again." />;
+  }
   const report = data.Reports[0];
 
   return (
