@@ -1,0 +1,1 @@
+export const BALANCE_SHEET_ENDPOINT = "/Reports/BalanceSheet";
