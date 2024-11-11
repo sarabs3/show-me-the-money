@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  backend:
+    image: jaypeng2015/show-me-the-money
+    container_name: backend-service
+    ports:
+      - "3000:3000" 
+    environment:
+      - NODE_ENV=production
+
+  frontend:
+    build:
+      context: . # Uses the Dockerfile in the current directory for the Next.js app
+      dockerfile: Dockerfile
+    container_name: frontend-service
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+      - API_ENDPOINT=http://backend-service:3000/api.xro/2.0 # Points frontend to backend service
+    depends_on:
+      - backend # Ensures backend starts before frontend
