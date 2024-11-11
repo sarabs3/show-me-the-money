@@ -1,5 +1,5 @@
 import React from 'react';
-import BalanceSheet from './components/BalanceSheet';
+import BalanceSheet from '../components/BalanceSheet';
 
 const HomePage = () => {
   return (
