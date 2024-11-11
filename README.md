@@ -1,3 +1,11 @@
+# Overview
+I have used NextJs with Typescript for solving the given problem. As there is not much Backend work there.
+I was asked to create an API for Frontend which will get data from Xero and serve to FE.
+
+I have used React Server components so the API call is happening at the server and the table is a client component.
+
+I also used Tailwind for styling and the solution is containerise as asked.
+
 # How to run the application
 
 - Clone the application
